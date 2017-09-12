@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		include ../includes/_head.pug
+		include ../includes/_javascript.pug
+
+	body
+		.layui-layout.layui-layout-admin
+			include ../includes/_nav.pug
+			include ../includes/_sidenav.pug
+			
+			.layui-body
+				.layui-breadcrumb(lay-separator=">", style="margin-bottom: 20px")
+					a(href="") 首页
+					a(href="") 用户管理
+					a(href="") 新增用户
+				block content
+			//- include ../includes/_foot.pug

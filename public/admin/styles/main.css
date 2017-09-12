@@ -1,0 +1,8 @@
+.layui-body {
+  padding: 15px;
+  bottom: 0 !important;
+}
+
+.layui-elem-field>div {
+  margin: 20px 30px 10px;
+}

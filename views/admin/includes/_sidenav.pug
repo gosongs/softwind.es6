@@ -1,0 +1,32 @@
+.layui-side.layui-bg-black
+  .layui-side-scroll
+    ul.layui-nav.layui-nav-tree(lay-filter='test')
+      li.layui-nav-item.layui-nav-itemed
+        a(href='javascript:;') 文章管理
+        |           
+        dl.layui-nav-child
+          dd
+            a(href='/admin/post/list') 文章列表
+          |             
+          dd
+            a(href='/admin/post/add') 新增文章
+
+      li.layui-nav-item.layui-nav-itemed
+        a(href='javascript:;') 用户管理
+        |           
+        dl.layui-nav-child
+          dd
+            a(href='/admin/user/list') 列表列表
+          |             
+          dd
+            a(href='/admin/user/add') 新增用户
+
+      li.layui-nav-item.layui-nav-itemed
+        a(href='javascript:;') 分类管理
+        |           
+        dl.layui-nav-child
+          dd
+            a(href='/admin/category/list') 分类列表
+          |             
+          dd
+            a(href='/admin/category/add') 新增分类
