@@ -3,22 +3,37 @@ extends ../layouts/_layout.pug
 block content
   fieldset.layui-elem-field
     legend 新增分类
-    div
-      form.layui-form(action='')
-        .layui-form-item
-          label.layui-form-label 名称
-          |     
-          .layui-input-block
-            input.layui-input(type='text', name='title', placeholder='请输入名称', autocomplete='off')
-        
-        .layui-form-item
-          label.layui-form-label 图标
-          |     
-          .layui-input-block
-            input.layui-input(type='text', name='title', placeholder='请输入名称', autocomplete='off')
+    div.layui-row
+      .layui-col-md6
+        form.layui-form(action='/api/category', method='put')
+          .layui-form-item
+            label.layui-form-label 名称
+            |
+            .layui-input-block
+              input.layui-input(type='text', name='name', placeholder='请输入名称', autocomplete='off', required,lay-verify="required", maxlength="16")
 
-        .layui-form-item.layui-form-text
-          label.layui-form-label 描述
-          |     
-          .layui-input-block
-            textarea.layui-textarea(name='desc', placeholder='请输入描述')
+          .layui-form-item.layui-form-text
+            label.layui-form-label 描述
+            |     
+            .layui-input-block
+              textarea.layui-textarea(name='desc', placeholder='请输入描述', maxlength="256")
+
+          .layui-form-item
+            label.layui-form-label 创建时间
+            |
+            .layui-input-inline
+              input#createdDate.layui-input(type='text', name='created_at')
+            .layui-form-mid.layui-word-aux 默认为当前时间
+
+          .layui-form-item
+            label.layui-form-label 立即启用
+            |     
+            .layui-input-block
+              input(type='checkbox', name='status', checked, lay-skin='switch')
+
+          .layui-form-item
+            .layui-input-block
+              button.layui-btn.layui-btn-primary(type='reset') 重置
+              button.layui-btn(lay-submit, lay-filter="AddCategoryForm") 提交
+
+  script(src='/admin/scripts/views/category/add.js')  

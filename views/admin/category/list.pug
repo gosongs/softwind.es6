@@ -1,3 +1,33 @@
 extends ../layouts/_layout.pug
 
 block content
+  table.layui-table(lay-data="{url:'/api/category', page:true, id:'test', limit: 40}" lay-filter="cateListTable")
+    thead
+      tr
+        th(lay-data="{field:'_id', width:220}") ID
+        |
+        th(lay-data="{field:'name', width:177}") 名称
+        |       
+        th(lay-data="{field:'status', width:65}") 状态
+        |
+        th(lay-data="{field:'desc', width:300}") 描述
+        |
+        th(lay-data="{field:'created_at', width:105, sort: true}") 创建时间
+        |
+        th(lay-data="{field:'updated_at', width:105, sort: true}") 更新时间
+        |
+        th(lay-data="{width:230, toolbar: '#handleBtn' }") 操作
+    tbody
+
+  script#handleBtn(type='text/html')
+    a.layui-btn.layui-btn-mini(lay-event="status") 
+      i.layui-icon &#xe609;
+      | 启用
+    //- a.layui-btn.layui-btn-mini.layui-btn-normal(lay-event="edit") 
+    //-   i.layui-icon &#xe609;
+    //-   | 更新
+    a.layui-btn.layui-btn-mini.layui-btn-danger(lay-event="del") 
+      i.layui-icon &#xe640;
+      | 删除
+    
+  script(src='/admin/scripts/views/category/list.js')  

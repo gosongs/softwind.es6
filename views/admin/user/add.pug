@@ -1,3 +1,74 @@
 extends ../layouts/_layout.pug
 
 block content
+  
+  fieldset.layui-elem-field
+    legend 新增用户
+    div.layui-row
+      .layui-col-md7
+        form.layui-form(action='/api/user')
+          .layui-form-item
+            label.layui-form-label 用户名
+            |     
+            .layui-input-block
+              input.layui-input(type='text', name='username', placeholder='8-16位', minlength="8", maxlength="16")
+
+          .layui-form-item
+            label.layui-form-label 昵称
+            |
+            .layui-input-block
+              input.layui-input(type='text', name='nickname', placeholder='2-8位', minlength="2", maxlength="8")    
+
+          .layui-form-item
+            label.layui-form-label 邮箱
+            |     
+            .layui-input-block
+              input.layui-input(type='text', name='email', placeholder='XXXX@XXX.com')
+
+          .layui-form-item
+            label.layui-form-label 密码
+            |
+            .layui-input-block
+              input.layui-input(type='password', name='password', placeholder='6-16位', minlength="6", maxlength="16")
+  
+          .layui-form-item
+            label.layui-form-label 加入时间
+            |
+            .layui-input-inline
+              input#createdAt.layui-input(type='text', name='created_at')
+            .layui-form-mid.layui-word-aux 默认为当前时间
+
+          .layui-form-item.layui-form-text
+            label.layui-form-label 个性签名
+            |     
+            .layui-input-block
+              textarea.layui-textarea(name='sign', placeholder='0-168位', maxlength='168')
+          
+          .layui-form-item
+            label.layui-form-label 状态
+            |     
+            .layui-input-block
+              input(type='checkbox', checked, name='status', lay-skin='switch', lay-text='启用|禁用')
+
+          .layui-form-item
+            label.layui-form-label 邮件订阅
+            |     
+            .layui-input-block
+              input(type='checkbox', name='subscribe_status', lay-skin='switch', lay-text='是|否')
+          
+          .layui-form-item
+            .layui-input-block
+              button.layui-btn.layui-btn-primary(type='reset') 重置
+              button.layui-btn(lay-submit, lay-filter="addUserForm") 提交
+
+      .layui-col-md4.layui-col-md-offset1
+        .layui-upload
+          button.layui-btn#uploadImg(type='button')
+            i.layui-icon &#xe67c;
+            | 上传头像
+          
+          .layui-upload-list
+            img.layui-upload-img#userAvatar
+            p.demoText
+          
+  script(src='/admin/scripts/views/user/add.js')  
