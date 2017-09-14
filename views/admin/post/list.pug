@@ -1,23 +1,42 @@
 extends ../layouts/_layout.pug
 
 block content
-  table.layui-table(lay-data="{height:315, url:'http://www.layui.com/demo/table/user', page:true, id:'test'}" lay-filter="test")
+  table.layui-table(lay-data="{height:315, url:'/api/post', page:true, id:'test'}" lay-filter="test")
     thead
       tr
-        th(lay-data="{field:'id', width:80, sort: true}") ID
+        th(lay-data="{field:'_id', width:80, sort: true}") ID
         |       
-        th(lay-data="{field:'username', width:80}") 用户名
+        th(lay-data="{field:'title', width:300, templet: '#titleTpl'}") 标题
         |       
-        th(lay-data="{field:'sex', width:80, sort: true}") 性别
+        th(lay-data="{field:'author_id', width:80, sort: true}") 作者
         |       
-        th(lay-data="{field:'city', width:80}") 城市
+        th(lay-data="{field:'views', width:80}") 阅读数
         |
-        th(lay-data="{field:'sign', width:177}") 签名
+        th(lay-data="{field:'stars', width:80}") 点赞数
         |       
-        th(lay-data="{field:'experience', width:80, sort: true}") 积分
+        th(lay-data="{field:'is_draft', width:80, sort: true}") 草稿
         |       
-        th(lay-data="{field:'score', width:80, sort: true}") 评分
-        |       
-        th(lay-data="{field:'classify', width:80}") 职业
-        |       
-        th(lay-data="{field:'wealth', width:135, sort: true}") 财富
+        th(lay-data="{field:'is_top', width:80, sort: true}") 置顶
+        |
+        th(lay-data="{field:'created_at', width:105, sort: true}") 创建时间
+        |
+        th(lay-data="{field:'updated_at', width:105, sort: true}") 更新时间
+        |
+        th(lay-data="{width:230, toolbar: '#handleBtn' }") 操作
+
+  script#titleTpl(type='text/html')
+    a(href='/admin/post/edit?id={{d._id}}', title='{{d.title}}') {{ d.title }}
+    | 
+
+  script#handleBtn(type='text/html')
+    a.layui-btn.layui-btn-mini(lay-event="status", href='/admin/post/edit?id={{d._id}}') 
+      i.layui-icon &#xe6b2;
+      | 编辑
+    a.layui-btn.layui-btn-mini.layui-btn-normal(lay-event="edit", href='/admin/post/detail?id={{d._id}}') 
+      i.layui-icon &#xe705;
+      | 查看
+    a.layui-btn.layui-btn-mini.layui-btn-danger(lay-event="del") 
+      i.layui-icon &#xe640;
+      | 删除
+
+  script(src='/admin/scripts/views/post/list.js')  

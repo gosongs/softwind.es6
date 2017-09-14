@@ -5,7 +5,9 @@ block content
   fieldset.layui-elem-field
     legend 新增文章
     div
-      form.layui-form(action='')
+      form.layui-form(action='/api/post')
+        input(type="hidden", name='from', value='original')
+        input(type="hidden", name='author_id', value='59b920f2dc495a56d554b42a')
         .layui-form-item
           label.layui-form-label 标题
           |     
@@ -17,7 +19,7 @@ block content
           |
           .layui-input-block
             each cate in cates
-              input(type='checkbox', name= 'cate[' + cate._id + ']', title= cate.name)
+              input(type='checkbox', name= 'cate' + cate._id, title= cate.name)
           
         .layui-form-item
           label.layui-form-label 时间
@@ -30,10 +32,10 @@ block content
           label.layui-form-label Banner
           |
           .layui-input-inline
-            button.layui-btn#uploadImg(type='button')
+            img(style='width:300px')#banner
+            button.layui-btn#uploadBanner(type='button')
               i.layui-icon &#xe67c;
               | 上传图片
-          .layui-form-mid.layui-word-aux 建议尺寸: 100px*100px
 
         .layui-form-item.layui-form-text
           label.layui-form-label 摘要
@@ -51,16 +53,25 @@ block content
           label.layui-form-label 置顶
           |     
           .layui-input-block
-            input(type='checkbox', name='switch', lay-skin='switch')
+            input(type='checkbox', name='is_top', lay-skin='switch')
         
         .layui-form-item
           label.layui-form-label 正文
-          |     
+          |
           .layui-input-block
-            textarea#postContent.layui-textarea()
+            .layui-tab
+              ul.layui-tab-title
+                li 富文本
+                li.layui-this Markdown
+              .layui-tab-content(style='padding: 10px 0;')
+                .layui-tab-item
+                  textarea#postContent.layui-textarea()
+
+                .layui-tab-item.layui-show 
+                  textarea(style='height: 325px;').layui-textarea(name='content', placeholder='请输入正文')
 
         .layui-form-item
           .layui-input-block
-            button.layui-btn(lay-submit, lay-filter="postForm") 提交
             button.layui-btn.layui-btn-primary(type='reset') 重置
+            button.layui-btn(lay-submit, lay-filter="postForm") 提交
   script(src='/admin/scripts/views/post/add.js')  

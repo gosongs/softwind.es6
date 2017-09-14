@@ -50,6 +50,10 @@ const PostSchema = new mongoose.Schema(
     is_draft: {
       type: Boolean,
       default: true
+    },
+    is_top: {
+      type: Boolean,
+      default: false
     }
   },
   {

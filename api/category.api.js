@@ -72,7 +72,7 @@ const categoryCtrl = {
               desc: item.desc,
               created_at: moment(item.created_at).format('YYYY-MM-DD'),
               updated_at: moment(item.updated_at).format('YYYY-MM-DD'),
-              status: item.status
+              status: item.status ? '<span class="layui-badge layui-bg-green">启用</span>' : '<span class="layui-badge">禁用</span>'
             })
           });
           res.json({ code: 0, data: format, count: count });

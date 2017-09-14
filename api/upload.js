@@ -9,6 +9,7 @@ var storage = multer.diskStorage({
     let temp = file.originalname.split('.');
     let ext = temp[temp.length - 1];
     let ts = +Date.now();
+    console.log(file)
     cb(null, `${file.fieldname}-${ts}.${ext}`)
   }
 })
@@ -34,10 +35,6 @@ const uploadCtrl = {
     } else {
       res.send({ code: 500, msg: '服务器错误，请重试' })
     }
-    console.log('文件类型：%s', file.mimetype);
-    console.log('原始文件名：%s', file.originalname);
-    console.log('文件大小：%s', file.size);
-    console.log('文件保存路径：%s', file.path);
   }
 };
 

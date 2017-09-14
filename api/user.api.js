@@ -78,7 +78,36 @@ const userCtrl = {
 
   },
   find: (req, res, next) => {
+    let { page, limit } = req.query;
+    page = +page; // 转为 number
+    limit = +limit;
 
+    User.count({}, (err, count) => {
+      if (err) res.json({ code: 500, msg: '服务器错误，请重试!' })
+
+      User.find()
+        .skip(limit * (page - 1))
+        .limit(limit)
+        .then((docs) => {
+          let format = [];
+          docs.map(item => {
+            format.push({
+              _id: item._id,
+              avatar_url: item.avatar_url,
+              username: item.username,
+              nickname: item.nickname,
+              email: item.email,
+              city: item.city,
+              level: item.level,
+              subscribe_status: item.subscribe_status,
+              created_at: moment(item.created_at).format('YYYY-MM-DD'),
+              updated_at: moment(item.updated_at).format('YYYY-MM-DD'),
+              status: item.status
+            })
+          });
+          res.json({ code: 0, data: format, count: count });
+        });
+    });
   }
 };
 

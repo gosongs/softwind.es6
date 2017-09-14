@@ -41,9 +41,6 @@ layui.use('upload', function () {
         var path = res.data;
         $('#userAvatar').attr('src', path);
       }
-
-      //上传完毕回调
-      console.log(res)
     },
     error: function () {
       //请求异常回调

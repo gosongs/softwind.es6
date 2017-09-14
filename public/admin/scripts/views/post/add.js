@@ -17,10 +17,14 @@ layui.use('upload', function () {
   var upload = layui.upload;
 
   var uploadInst = upload.render({
-    elem: '#uploadImg',
-    url: '/upload/',
+    elem: '#uploadBanner',
+    url: '/api/upload/',
     done: function (res) {
-
+      layer.msg(res.msg);
+      if (res.code === 0) {
+        var path = res.data;
+        $('#banner').attr('src', path);
+      }
     },
     error: function () {
       //请求异常回调
@@ -40,8 +44,40 @@ layui.use('form', function () {
 
   //监听提交
   form.on('submit(postForm)', function (data) {
-    console.log(JSON.stringify(data.field));
-    console.log(layedit.getContent(layeditIndex))
+    var cates = []; // 分类id数组
+    var field = data.field;
+    
+    for (key in data.field) {
+      console.log(key)
+      if (key.indexOf('cate') !== -1) {
+        cates.push(key.slice(4))
+      }
+    }
+    var fireData = {
+      title: field.title,
+      category_id: cates.join(','),
+      desc: field.desc,
+      banner: $('banner').attr('src') || '',
+      author_id: field.author_id,
+      from: field.from,
+      type: 'markdown',
+      content: field.content,
+      is_draft: field.is_draft === 'on',
+      is_top: field.is_top === 'on',
+      created_at: field.created_at
+    };
+
+    $.ajax({
+      url: data.form.action,
+      method: 'put',
+      data: fireData,
+      success: function (res) {
+        layer.msg(res.msg);
+      },
+      error: function (err) {
+        console.error(err)
+      }
+    });
     return false;
   });
 });

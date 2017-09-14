@@ -1,8 +1,9 @@
 .layui-header
-  .layui-logo softwind
+  a.layui-logo(href='/admin')
+    img(src="/admin/images/logo_white.png", alt="")
   ul.layui-nav.layui-layout-left
     li.layui-nav-item
-      a(href='') 控制台
+      a(href='/admin/census/timeline') 时间线
     |       
     li.layui-nav-item
       a(href='') 商品管理
@@ -12,7 +13,7 @@
     |       
     li.layui-nav-item
       a(href='javascript:;') 其他系统
-      |         
+      |
       dl.layui-nav-child
         dd
           a(href='') 邮件管理
@@ -26,7 +27,7 @@
   ul.layui-nav.layui-layout-right
     li.layui-nav-item
       a(href='javascript:;')
-        img.layui-nav-img(src='http://t.cn/RCzsdCq')
+        img
         | admin
       |         
       dl.layui-nav-child

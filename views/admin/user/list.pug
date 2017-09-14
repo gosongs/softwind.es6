@@ -1,3 +1,31 @@
 extends ../layouts/_layout.pug
 
 block content
+
+  table.layui-table(lay-data="{url:'/api/user', page:true, id:'test', limit: 40}" lay-filter="userListTable")
+    thead
+      tr
+        th(lay-data="{field:'_id', width:220}") ID
+        |
+        th(lay-data="{field:'avatar_url', width:177}") 头像
+        |       
+        th(lay-data="{field:'username', width:100}") 用户名
+        |
+        th(lay-data="{field:'nickname', width:100}") 昵称
+        |
+        th(lay-data="{field:'email', width:180}") 邮箱
+        |
+        th(lay-data="{field:'city', width:65}") 城市
+        |
+        th(lay-data="{field:'level', width:65}") 等级
+        |
+        th(lay-data="{field:'subscribe_status', width:65}") 订阅
+        |
+        th(lay-data="{field:'created_at', width:105, sort: true}") 创建时间
+        |
+        th(lay-data="{field:'updated_at', width:105, sort: true}") 更新时间
+        |
+        th(lay-data="{width:230, toolbar: '#handleBtn' }") 操作
+    tbody
+
+  script(src='/admin/scripts/views/user/list.js')  

@@ -6,3 +6,18 @@
 .layui-elem-field>div {
   margin: 20px 30px 10px;
 }
+
+.layui-layout-admin .layui-logo {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-family: 'Niconne';
+  overflow: hidden;
+}
+
+.layui-layout-admin .layui-logo img{
+  margin-top: -61px;
+  width: 185px;
+  margin-left: -15px;
+}
