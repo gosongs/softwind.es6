@@ -16,17 +16,14 @@ block content
           label.layui-form-label 分类
           |
           .layui-input-block
-            input(type='checkbox', name='like[write]', title='写作')
-            |       
-            input(type='checkbox', name='like[read]', title='阅读', checked='')
-            |       
-            input(type='checkbox', name='like[dai]', title='发呆')
+            each cate in cates
+              input(type='checkbox', name= 'cate[' + cate._id + ']', title= cate.name)
           
         .layui-form-item
           label.layui-form-label 时间
           |
           .layui-input-inline
-            input#test1.layui-input(type='text')
+            input#postDate.layui-input(type='text', name='created_at')
           .layui-form-mid.layui-word-aux 默认为当前时间
 
         .layui-form-item
@@ -45,10 +42,10 @@ block content
             textarea.layui-textarea(name='desc', placeholder='请输入摘要')
         
         .layui-form-item
-          label.layui-form-label 立即发布
+          label.layui-form-label 草稿
           |     
           .layui-input-block
-            input(type='checkbox', name='switch', lay-skin='switch')
+            input(type='checkbox', checked, name='is_draft', lay-skin='switch')
 
         .layui-form-item
           label.layui-form-label 置顶

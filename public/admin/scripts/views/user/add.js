@@ -26,3 +26,27 @@ layui.use('form', function () {
     return false;
   });
 });
+
+// 头像上传
+layui.use('upload', function () {
+  var upload = layui.upload;
+
+  //执行实例
+  var uploadInst = upload.render({
+    elem: '#uploadAvatar',
+    url: '/api/upload/',
+    done: function (res) {
+      layer.msg(res.msg);
+      if (res.code === 0) {
+        var path = res.data;
+        $('#userAvatar').attr('src', path);
+      }
+
+      //上传完毕回调
+      console.log(res)
+    },
+    error: function () {
+      //请求异常回调
+    }
+  });
+});
