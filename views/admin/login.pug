@@ -1,0 +1,19 @@
+extends ./layouts/_baseLayout
+
+block content
+  form.layui-form.layui-form-pane(action="/api/login", method='post')
+    .layui-form-item
+      label.layui-form-label 用户名
+      .layui-input-block
+        input.layui-input(type='text', name='username')
+    
+    .layui-form-item
+      label.layui-form-label 密码
+      .layui-input-block
+        input.layui-input(type='password', name='password')
+
+    .layui-form-item
+      .layui-input-block(style='text-align: right')
+        button.layui-btn(lay-submit, lay-filter='loginForm') 登录
+
+  script(src='/admin/scripts/login.js')

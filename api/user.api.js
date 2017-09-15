@@ -37,6 +37,7 @@ const userCtrl = {
 
     req.getValidationResult()
       .then(result => {
+        // console.log(result.useFirstErrorOnly().array())
         const errors = !result.isEmpty();
         if (errors) {
           res.json({ code: 400, msg: '参数错误, 请重试!' })

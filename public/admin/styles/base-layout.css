@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.base-wrap {
+  display: block;
+  background: #fff url('../images/background_1.jpg') no-repeat 50% fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.base-inner{
+  height: 100%;
+  box-sizing: border-box;
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  align-items: center;
+}
+
+.base-form{
+  width: 380px;
+  padding: 15px;
+  background: #fff;
+}

@@ -1,0 +1,27 @@
+extends ../layouts/_layout.pug
+
+block content
+    .layui-breadcrumb(lay-separator=">", style="margin-bottom: 20px")
+      <a><cite>首页</cite></a>
+      <a><cite>文章管理</cite></a>
+      <a><cite>文章详情</cite></a>
+
+    .post-a4#contents
+      .post-title= detail.title
+      .post-info.clearfix
+        a.post-author(href= '/admin/user/detail')
+          i.fa.fa-user-circle
+          = detail.author.nickname
+        
+        span.post-date
+          i.fa.fa-clock-o
+          = detail.created_at
+
+        .post-cates
+          i.fa.fa-tags
+          each cate in detail.cates
+            span.layui-badge-rim= cate.name
+        
+
+      .post-content!= detail.content
+    

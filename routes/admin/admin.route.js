@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
   res.render('admin/index', { title: 'Express Babel' });
 });
 
+router.get('/login', (req, res) => {
+  res.render('admin/login', { title: 'Express Babel' });
+});
+
 router.use('/user', userRoutes);
 router.use('/post', postRoutes);
 router.use('/category', categoryRoutes);

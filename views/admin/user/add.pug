@@ -11,25 +11,25 @@ block content
             label.layui-form-label 用户名
             |     
             .layui-input-block
-              input.layui-input(type='text', name='username', placeholder='8-16位', minlength="8", maxlength="16")
+              input.layui-input(type='text', name='username', placeholder='5-16位',  lay-verify="username")
 
           .layui-form-item
             label.layui-form-label 昵称
             |
             .layui-input-block
-              input.layui-input(type='text', name='nickname', placeholder='2-8位', minlength="2", maxlength="8")    
+              input.layui-input(type='text', name='nickname', placeholder='2-8位',  lay-verify="nickname")    
 
           .layui-form-item
             label.layui-form-label 邮箱
             |     
             .layui-input-block
-              input.layui-input(type='text', name='email', placeholder='XXXX@XXX.com')
+              input.layui-input(type='text', name='email', placeholder='XXXX@XXX.com', lay-verify="email")
 
           .layui-form-item
             label.layui-form-label 密码
             |
             .layui-input-block
-              input.layui-input(type='password', name='password', placeholder='6-16位', minlength="6", maxlength="16")
+              input.layui-input(type='password', name='password', placeholder='6-16位', lay-verify="password")
   
           .layui-form-item
             label.layui-form-label 加入时间

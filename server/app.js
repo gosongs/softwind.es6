@@ -3,9 +3,11 @@ import path from 'path';
 import logger from 'morgan';
 import expressValidator from 'express-validator';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import routes from './index.route';
 import apis from '../api/index.api';
 import cors from 'cors';
+import checkToken from '../api/checkToken';
 
 const app = express();
 app.disable('x-powered-by');
@@ -18,12 +20,18 @@ app.use(logger('dev', {
   skip: () => app.get('env') === 'test'
 }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // 允许跨域访问
 app.use(cors())
+
+// 校验登录
+app.use(function (req, res, next) {
+  checkToken(req, res, next);
+});
 
 // Routes
 app.use('/', routes);

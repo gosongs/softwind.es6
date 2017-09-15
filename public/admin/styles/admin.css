@@ -1,0 +1,185 @@
+#contents h1, #contents h2, #contents h3, #contents h4, #contents h5, #contents h6, #contents p, #contents blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+#contents body {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #737373;
+  margin: 10px 13px 10px 13px;
+}
+
+#contents a {
+  color: #0069d6;
+}
+
+#contents a:hover {
+  color: #0050a3;
+  text-decoration: none;
+}
+
+#contents a img {
+  border: none;
+}
+
+#contents p {
+  margin-bottom: 9px;
+}
+
+#contents h1, #contents h2, #contents h3, #contents h4, #contents h5, #contents h6 {
+  color: #404040;
+  line-height: 36px;
+}
+
+#contents h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+}
+
+#contents h2 {
+  font-size: 24px;
+}
+
+#contents h3 {
+  font-size: 18px;
+}
+
+#contents h4 {
+  font-size: 16px;
+}
+
+#contents h5 {
+  font-size: 14px;
+}
+
+#contents h6 {
+  font-size: 13px;
+}
+
+#contents hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+#contents blockquote {
+  margin: 0 0 22px 5px;
+  padding: 0 15px;
+  border-left: 5px solid #111;
+}
+
+#contents blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+#contents code, #contents pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+
+#contents code {
+  color: rgba(0, 0, 0, 0.75);
+  padding: 14px 0;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#contents pre {
+  display: block;
+  margin: 0 0 18px;
+  line-height: 16px;
+  font-size: 11px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#contents pre code {
+  color: #737373;
+  font-size: 11px;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.layui-body {
+  padding: 15px;
+  bottom: 0 !important;
+}
+
+.layui-elem-field > div {
+  margin: 20px 30px 10px;
+}
+
+.layui-layout-admin .layui-logo {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-family: 'Niconne';
+  overflow: hidden;
+}
+
+.layui-layout-admin .layui-logo img {
+  margin-top: -61px;
+  width: 185px;
+  margin-left: -15px;
+}
+
+.post-a4 {
+  position: relative;
+  min-width: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 70px 90px;
+  width: 802px;
+  min-height: 1000px;
+  background-color: #fff;
+  box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+}
+
+.post-a4 .fa {
+  margin-right: 5px;
+}
+
+.post-a4 .post-title {
+  position: relative;
+  font-size: 24px;
+  color: #222;
+  font-weight: 100;
+  width: 600px;
+  margin-bottom: 30px;
+}
+
+.post-a4 .post-info {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.post-a4 .post-author, .post-a4 .post-date {
+  margin-right: 20px;
+}
+
+.post-a4 .post-cates {
+  display: inline-block;
+}
+
+.post-a4 .post-cates span {
+  margin-right: 5px;
+}
+ 
+
+ /*# sourceMappingURL= admin.css.map */

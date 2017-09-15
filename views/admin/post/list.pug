@@ -25,7 +25,7 @@ block content
         th(lay-data="{width:230, toolbar: '#handleBtn' }") 操作
 
   script#titleTpl(type='text/html')
-    a(href='/admin/post/edit?id={{d._id}}', title='{{d.title}}') {{ d.title }}
+    a(href='/admin/post/detail?id={{d._id}}', title='{{d.title}}') {{ d.title }}
     | 
 
   script#handleBtn(type='text/html')
