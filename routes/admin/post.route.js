@@ -28,11 +28,16 @@ router.route('/detail')
         if (!docs) {
           res.redirect('/admin/post/list');
         } else {
+          let content = '';
           let detail = JSON.parse(JSON.stringify(docs));
           detail.created_at = moment(detail.created_at).format('YYYY-MM-DD');
           detail.updated_at = moment(detail.updated_at).format('YYYY-MM-DD');
+
+          if (detail.banner) {
+            content = `<img src='${detail.banner}' style="width: 100%" /><br><br>`;
+          }
           if (detail.type === 'markdown') {
-            detail.content = marked(detail.content);
+            detail.content = content += marked(detail.content);
           }
 
           // 查询用户信息
@@ -42,14 +47,19 @@ router.route('/detail')
             })
             .then(() => {
               // 查询文章所属分类
-              let catesIds = detail.category_id.split(',');
-              Category.find({ _id: { $in: catesIds } })
-                .then(cates => {
-                  detail.cates = cates;
-                })
-                .then(() => {
-                  res.render('admin/post/detail', { detail });
-                })
+              console.log(docs)
+              if (detail.category_id) {
+                let catesIds = detail.category_id.split(',');
+                Category.find({ _id: { $in: catesIds } })
+                  .then(cates => {
+                    detail.cates = cates;
+                  })
+                  .then(() => {
+                    res.render('admin/post/detail', { detail });
+                  })
+              } else {
+                res.render('admin/post/detail', { detail });
+              }
             })
         }
       })
@@ -61,6 +71,11 @@ router.route('/add')
       .then(cates => {
         res.render('admin/post/add', { cates });
       })
+  });
+
+router.route('/ynote')
+  .get(function (req, res) {
+    res.render('admin/post/ynote', {});
   });
 
 export default router;

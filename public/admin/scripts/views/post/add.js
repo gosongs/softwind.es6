@@ -46,7 +46,7 @@ layui.use('form', function () {
   form.on('submit(postForm)', function (data) {
     var cates = []; // 分类id数组
     var field = data.field;
-    
+
     for (key in data.field) {
       console.log(key)
       if (key.indexOf('cate') !== -1) {
@@ -57,7 +57,7 @@ layui.use('form', function () {
       title: field.title,
       category_id: cates.join(','),
       desc: field.desc,
-      banner: $('banner').attr('src') || '',
+      banner: $('#banner').attr('src') || '',
       author_id: field.author_id,
       from: field.from,
       type: 'markdown',

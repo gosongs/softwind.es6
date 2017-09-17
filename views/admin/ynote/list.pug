@@ -1,0 +1,40 @@
+extends ../layouts/_layout.pug
+
+block content
+  .layui-breadcrumb(lay-separator=">", style="margin-bottom: 20px")
+    <a><cite>首页</cite></a>
+    <a><cite>文章管理</cite></a>
+    <a><cite>导入笔记</cite></a>
+
+  fieldset.layui-elem-field.layui-field-title
+    legend 快捷操作
+  blockquote.layui-elem-quote 更新操作将会删除数据库并重新创建。
+  div
+    button#updateCategory.layui-btn.layui-btn-small 更新分类
+    button.layui-btn.layui-btn-small 更新全部的笔记
+    button.layui-btn.layui-btn-small 更新昨天的笔记
+
+  fieldset.layui-elem-field.layui-field-title
+    legend 分类列表
+  blockquote.layui-elem-quote 仅支持一级目录结构。
+  
+  div#cateListBox
+  
+
+  fieldset.layui-elem-field.layui-field-title
+    legend 最近笔记
+  blockquote.layui-elem-quote 有道自己的富文本笔记不能被导入。
+  
+  table.layui-table(lay-data="{url:'/api/ynote/recent', page:true, id:'test'}" lay-filter="test")
+    thead
+      tr
+        th(lay-data="{field:'id', width:80, sort: true}") ID
+        th(lay-data="{field:'name', width:280, sort: true}") 名称
+        th(lay-data="{field:'noteType', width:100, sort: true}") 类型
+        //- th(lay-data="{field:'summary', width:280, sort: true}") 摘要
+        th(lay-data="{field:'fileSize', width:100, sort: true}") 大小
+        th(lay-data="{field:'parentName', width:180, sort: true}") 所属分类
+        th(lay-data="{field:'created_at', width:180, sort: true}") 创建时间
+        th(lay-data="{field:'updated_at', width:180, sort: true}") 更新时间
+
+  script(src='/admin/scripts/views/ynote/list.js')  

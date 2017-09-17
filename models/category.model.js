@@ -7,27 +7,27 @@ const CategorySchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    desc: {
-      type: String,
+    child_num: {
+      type: Number,
+      default: 0
     },
     status: {
-      type: Boolean
+      type: Boolean,
+      default: true
     },
     created_at: {
       type: Date,
       default: Date.now()
-    }
-  },
-  {
-    timestamps: {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
+    },
+    updated_at: {
+      type: Date,
+      default: Date.now()
     }
   }
 );
 
 CategorySchema.statics = {
- 
+
 };
 
 export default mongoose.model('category', CategorySchema);

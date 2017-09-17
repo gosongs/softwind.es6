@@ -1,7 +1,7 @@
 extends ../layouts/_layout.pug
 
 block content
-  table.layui-table(lay-data="{height:315, url:'/api/post', page:true, id:'test'}" lay-filter="test")
+  table.layui-table(lay-data="{url:'/api/post', page:true, id:'test'}" lay-filter="test")
     thead
       tr
         th(lay-data="{field:'_id', width:80, sort: true}") ID
